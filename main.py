@@ -36,8 +36,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     @Slot()
     def send_data(self):
-        data = self.tb_send_data.text() + '\n'
-        if self.serial.write(data.encode()) != -1:
+        data = self.tb_send_data.text()
+        if self.serial.write(f"{data}\n".encode()) != -1:
             print(f"Sent data: {data}")
 
     @Slot()
