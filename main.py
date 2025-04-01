@@ -13,10 +13,18 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.serial.readyRead.connect(self.read_data)
         self.received_data = ""
 
-    @Slot(str)
-    def connect_to_port(self, port_name):
-        print(f"Connecting to {port_name}")
+        self.rescan()
+
+        for baud in QSerialPort.BaudRate:
+            self.cb_baud_rate.addItem(str(baud))
+
+    @Slot()
+    def connect(self):
+        port_name = self.cb_ports.currentText()
+        baud_rate = self.cb_baud_rate.currentText()
+        print(f"Connecting to {port_name} with baud rate {baud_rate}")
         self.serial.setPortName(port_name)
+        self.serial.setBaudRate(int(baud_rate))
         if not self.serial.open(QSerialPort.OpenModeFlag.ReadWrite):
             print(self.serial.error())
 

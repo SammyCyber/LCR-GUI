@@ -44,6 +44,34 @@
      </layout>
     </item>
     <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>Baud rate:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="cb_baud_rate">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_connect">
+        <property name="text">
+         <string>Connect</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QLabel" name="label">
@@ -102,7 +130,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>786</x>
-     <y>95</y>
+     <y>163</y>
     </hint>
     <hint type="destinationlabel">
      <x>608</x>
@@ -127,18 +155,18 @@
    </hints>
   </connection>
   <connection>
-   <sender>cb_ports</sender>
-   <signal>currentTextChanged(QString)</signal>
+   <sender>btn_connect</sender>
+   <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>connect_to_port(QString)</slot>
+   <slot>connect()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>211</x>
-     <y>51</y>
+     <x>740</x>
+     <y>102</y>
     </hint>
     <hint type="destinationlabel">
-     <x>36</x>
-     <y>33</y>
+     <x>672</x>
+     <y>170</y>
     </hint>
    </hints>
   </connection>
@@ -146,6 +174,6 @@
  <slots>
   <slot>send_data()</slot>
   <slot>rescan()</slot>
-  <slot>connect_to_port(QString)</slot>
+  <slot>connect()</slot>
  </slots>
 </ui>

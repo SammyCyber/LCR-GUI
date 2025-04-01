@@ -54,6 +54,28 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addLayout(self.horizontalLayout_2)
 
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.label_4 = QLabel(self.centralwidget)
+        self.label_4.setObjectName(u"label_4")
+
+        self.horizontalLayout_3.addWidget(self.label_4)
+
+        self.cb_baud_rate = QComboBox(self.centralwidget)
+        self.cb_baud_rate.setObjectName(u"cb_baud_rate")
+        sizePolicy.setHeightForWidth(self.cb_baud_rate.sizePolicy().hasHeightForWidth())
+        self.cb_baud_rate.setSizePolicy(sizePolicy)
+
+        self.horizontalLayout_3.addWidget(self.cb_baud_rate)
+
+        self.btn_connect = QPushButton(self.centralwidget)
+        self.btn_connect.setObjectName(u"btn_connect")
+
+        self.horizontalLayout_3.addWidget(self.btn_connect)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_3)
+
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.label = QLabel(self.centralwidget)
@@ -97,7 +119,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         self.btn_send_data.clicked.connect(MainWindow.send_data)
         self.btn_rescan.clicked.connect(MainWindow.rescan)
-        self.cb_ports.currentTextChanged.connect(MainWindow.connect_to_port)
+        self.btn_connect.clicked.connect(MainWindow.connect)
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
@@ -106,6 +128,8 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Connect to:", None))
         self.btn_rescan.setText(QCoreApplication.translate("MainWindow", u"Rescan", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Baud rate:", None))
+        self.btn_connect.setText(QCoreApplication.translate("MainWindow", u"Connect", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Send data:", None))
         self.btn_send_data.setText(QCoreApplication.translate("MainWindow", u"Send", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Received data:", None))
