@@ -17,6 +17,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         for baud in QSerialPort.BaudRate:
             self.cb_baud_rate.addItem(str(baud))
+        self.cb_baud_rate.setCurrentText(str(self.serial.baudRate()))
 
     @Slot()
     def connect(self):
