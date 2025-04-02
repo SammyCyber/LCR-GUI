@@ -32,6 +32,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     @Slot()
     def rescan(self):
+        self.cb_ports.clear()
         for port in QSerialPortInfo.availablePorts():
             if "usb" in port.description().lower():
                 self.cb_ports.addItem(port.portName())
