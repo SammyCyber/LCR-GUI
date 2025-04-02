@@ -1,5 +1,6 @@
 from PySide6.QtWidgets import QApplication, QMainWindow
 from PySide6.QtCore import Slot
+from PySide6.QtGui import QTextCursor
 from PySide6.QtSerialPort import QSerialPort, QSerialPortInfo
 from main_window_ui import Ui_MainWindow
 
@@ -45,6 +46,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def read_data(self):
         self.received_data += self.serial.readAll().data().decode()
         if self.received_data[-1] == '\n':
+            self.tb_received_data.moveCursor(QTextCursor.MoveOperation.End)
             self.tb_received_data.insertPlainText(f"Received data: {self.received_data}")
             self.received_data = ""
 
